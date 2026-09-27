@@ -1,0 +1,26 @@
+body{
+    padding: 10px 20px 10px 20px;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.inputComm{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.content{
+    text-align: center;
+}
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.buttons{
+    text-align: center;
+    margin: 20px;
+}
