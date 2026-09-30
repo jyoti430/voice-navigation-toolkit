@@ -167,4 +167,36 @@ function handleCommand(command){
 // handleCommand("scroll doWn");
 // handleCommand("click add to cart");
 
+const recognition = new SpeechRecognition();
+
+let isListening = false;
+
+recognition.onstart = () => {
+    isListening = true;
+    console.log("listening started");
+}
+
+recognition.onresult = (event) => {
+    let text = event.results[0][0].transcript;
+    const punctuationRegex = /[.,!?]/g;
+    text = text.replace(punctuationRegex, " ");
+    console.log(text);
+    handleCommand(text);
+};
+
+recognition.onerror = (event) => {
+    console.log(event.error); 
+}
+
+recognition.onend = () => {
+    isListening = false;
+    console.log("listening stopped");
+}
+
+function startListening() {
+    recognition.start();
+}
+
+// startListening();
+
 
